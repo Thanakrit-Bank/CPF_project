@@ -52,22 +52,22 @@ export default class extends Controller {
   setStatusSelectTag(event){
     const item = event.currentTarget
     const select_current_tag = new Array(...this.element.querySelector(`select#${item.id}.ot`))
-    this.is_select_tag_enable(select_current_tag,item)
+    this.is_select_tag_enable(select_current_tag,item.checked)
   }
   get selectedCheckboxes() {
     return this.checkboxes.filter((c) => c.checked);
   }
-  is_select_tag_enable(tag,checkbox){
-    function set_or_disabled(some_tag,checkbox){
-      console.log(some_tag.value)
-      if(!checkbox.disabled){
-        some_tag.disabled = false;
-      }
-      else{
-        some_tag.disabled = true;
-      }
+  is_select_tag_enable(tag,checkbox_current){
+    const some_tag = tag
+    if(checkbox_current.checked){
+      some_tag.forEach((el)=>{
+        const select_tag = el;
+        
+      })
     }
-    tag.forEach(set_or_disabled.bind(tag,checkbox))
+    else{
+      some_tag.disabled = true
+    }
   }
   get checkboxes() {
     return new Array(...this.element.querySelectorAll("input[type=checkbox]"));
