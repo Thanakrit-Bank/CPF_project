@@ -1,0 +1,7 @@
+%div{:class => %w[align-items-center]} 
+  %h1 Login 
+  - if logged_in?
+    %p  สวัสดี, #{@current_user.name}!
+    =link_to 'ออกจากระบบ', logout_path,class: "btn btn-primary"
+  - else
+    =link_to 'เข้าสู่ระบบ', login_path,class: "btn btn-primary"
